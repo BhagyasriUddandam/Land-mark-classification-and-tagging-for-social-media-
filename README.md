@@ -1,31 +1,31 @@
 # Landmark Classification & Tagging for Social Media
 
-![Landmark Examples](static_images/sample_landmark_output.png) <!-- Replace with an appropriate image showcasing your project -->
+
 
 ## Project Overview
- "Landmark Classification & Tagging for Social Media" project! In this project, I will build a landmark classifier.
+Welcome to the "Landmark Classification & Tagging for Social Media" project! This project focuses on building a landmark classifier.
 
 ## Project Steps
 
-The high-level steps of the project include:
+The project is divided into the following key steps:
 
-1. **Create a CNN to Classify Landmarks (from Scratch):** Visualize the dataset, process it for training, and build a CNN from scratch to classify landmarks. I'll describe data processing decisions and network architecture. Export the best network using Torch Script.
+1. ** Develop a CNN for Landmark Classification (from Scratch)** This step involves visualizing the dataset, processing it for training, and constructing a CNN from the ground up to classify landmarks. I will outline the data processing choices and network architecture. The best network model will be exported using Torch Script.
 
-2. **Create a CNN to Classify Landmarks (using Transfer Learning):** Investigate pre-trained models, choose one, and train it for classification. Explain my pre-trained network choice and export my solution using Torch Script.
+2. **Utilize Transfer Learning for Landmark Classification** In this step, I will explore pre-trained models, select one, and fine-tune it for landmark classification. The choice of the pre-trained network will be explained, and the final model will be exported using Torch Script.
 
-3. **Deploy Your Algorithm in an App:** Use the best model to create a user-friendly app for predicting likely landmarks in images. Test the model and reflect on its strengths and weaknesses.
+3. **Deploy the Model in an App** The top-performing model will be used to create a user-friendly app that predicts likely landmarks in images. The model will be tested, and its strengths and weaknesses will be assessed.
 
-Each step is detailed in the following notebooks included in the project starter kit:
+The project starter kit includes the following notebooks:
 
-- [cnn_from_scratch.ipynb](cnn_from_scratch.ipynb): Create a CNN from scratch.
-- [transfer_learning.ipynb](transfer_learning.ipynb): Use transfer learning.
-- [app.ipynb](app.ipynb): Deploy your best model in an app. Generate the archive file for submission.
+- [cnn_from_scratch.ipynb](cnn_from_scratch.ipynb): Develop a CNN from scratch.
+- [transfer_learning.ipynb](transfer_learning.ipynb): Apply transfer learning.
+- [app.ipynb](app.ipynb): Deploy the best model in an app. Generate the archive file for submission.
 
 ## Project Purpose
 
-Photo sharing and storage services benefit from location data attached to uploaded photos. However, many photos lack location metadata, making it challenging to enhance user experiences. This project addresses the issue by automatically predicting image locations through landmark classification.
+Photo-sharing and storage services greatly benefit from attaching location data to uploaded photos. However, many photos lack this metadata, making it difficult to enhance user experiences. This project aims to address this problem by automatically predicting image locations through landmark classification.
 
-If no location metadata is available, inferring the location from a discernible landmark becomes a solution. Given the volume of images uploaded to such services, manual landmark classification is infeasible. This project takes the first steps towards solving this problem by building models to predict image locations based on depicted landmarks.
+When location metadata is missing, inferring the location from recognizable landmarks becomes a viable solution. Given the sheer volume of images uploaded to such services, manual landmark classification isn't feasible. This project takes the initial steps toward solving this issue by building models to predict image locations based on the landmarks they depict.
 
 
 
@@ -34,32 +34,32 @@ If no location metadata is available, inferring the location from a discernible 
 
 ### Dataset
 
-The landmark images are a subset of the Google Landmarks Dataset v2.
+The landmark images used in this project are a subset of the Google Landmarks Dataset v2.
 
 ### Models and Accuracy
 
-Two different approaches were explored to classify landmarks:
+Two approaches were explored for classifying landmarks:
 
 #### CNN from Scratch
 
-I designed a custom Convolutional Neural Network (CNN) architecture and trained from scratch to classify landmarks. This model was tailored to the specific requirements of the project and underwent rigorous training. It achieved 53% Accuracy.
+I designed a custom Convolutional Neural Network (CNN) architecture and trained from scratch to classify landmarks. This model was tailored to the specific requirements of the project and underwent rigorous training. It achieved 53% Accuracy.A custom Convolutional Neural Network (CNN) was designed and trained from scratch to classify landmarks. This model was specifically tailored for the project and underwent extensive training, achieving a 53% accuracy.
 
-- **Model Architecture:** I decided to use 5 convolutional layers so the model could be sufficiently expressive. I used dropout layers to reduce my model's tendency to overfit the training data. I made my model output a 50-dimensional vector to match with the 50 available landmark classes.
-- **Data Preprocessing:**  My code first resizes the image to 256 and then crops to 224. I picked 224 as the input size because it is the recommended input size for using pytorch's pre-trained models. I did decide to augment the dataset via RandAugment, a typical set of augmentations for natural images. I added this augmentation with the goal of improving my model's robustness, thus improving test accuracy.
-- **Training and Validation:** I trained for 50 epochs with an adam optimizer and a learning rate scheduler. I saved the weights with the lowest loss
+- **Model Architecture:** The architecture consists of 5 convolutional layers, providing the model with sufficient expressiveness. Dropout layers were included to reduce overfitting, and the model was designed to output a 50-dimensional vector corresponding to the 50 landmark classes.
+- **Data Preprocessing:** Images were resized to 256 and then cropped to 224, the recommended input size for PyTorch's pre-trained models. Data augmentation was applied using RandAugment to enhance the model's robustness and improve test accuracy.
+- **Training and Validation:** The model was trained for 50 epochs using the Adam optimizer and a learning rate scheduler. The weights corresponding to the lowest loss were saved.
 - **Accuracy:** 53%
 
 #### Transfer Learning
 
-Transfer learning involves leveraging pre-trained CNN models and fine-tuning them for the landmark classification task. This approach capitalizes on the knowledge learned from a large dataset and adapts it to the specific task at hand.
+Transfer learning involves using pre-trained CNN models and fine-tuning them for the landmark classification task. This approach leverages knowledge from a large dataset and adapts it to the specific task.
 
-- **Pre-trained Model Selection:** I decided to use ResNet50 as the base model. I chose this model because it is a very deep model and it has been trained on a large dataset. I also chose this model because it is a very popular model and I wanted to see how it would perform on this dataset.
-- **Training and Validation:** Same process as the CNN from scratch.
+- **Pre-trained Model Selection:**  ResNet50 was chosen as the base model due to its depth and popularity. It was fine-tuned for the landmark classification task.
+- **Training and Validation:** The same process as with the CNN from scratch was followed.
 - **Accuracy:** 74%
 
 ### Performance Evaluation
 
-Both models were rigorously evaluated and compared to determine their effectiveness in classifying landmarks accurately. The final selected model was chosen based on its performance and ability to generalize to new and unseen images. The chosen model was the transfer learning model.
+Both models were thoroughly evaluated and compared to assess their effectiveness in accurately classifying landmarks. The transfer learning model was ultimately selected for deployment due to its superior performance and ability to generalize to new, unseen images.
 
 
 By Bhagya Sri Uddandam
